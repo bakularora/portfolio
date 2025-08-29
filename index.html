@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Bakul Arora — Portfolio</title>
   <style>
+    /* ===== Theme Variables ===== */
     :root {
       --bg: #ffffff;
       --text: #1e293b;
@@ -21,6 +22,8 @@
       --accent: #38bdf8;
       --chip-bg: #334155;
     }
+
+    /* ===== Reset & Base ===== */
     * {margin:0; padding:0; box-sizing:border-box;}
     body {
       font-family: "Segoe UI", Roboto, sans-serif;
@@ -31,78 +34,104 @@
     }
     html { scroll-behavior:smooth; }
     .container { max-width: 900px; margin:auto; padding: 1.5rem; }
+
+    /* ===== Navbar ===== */
     header {
       background: var(--card);
       border-bottom:1px solid #e2e8f0;
       padding:1rem;
-      position:sticky; top:0; z-index:10;
+      position:sticky; top:0; z-index:20;
       display:flex; justify-content:space-between; align-items:center;
     }
     header h1 { font-size:1.1rem; color: var(--accent); }
     nav ul { list-style:none; display:flex; gap:1rem; }
-    nav a { text-decoration:none; color: var(--text); font-size:0.95rem; }
-    nav a:hover { color: var(--accent); }
+    nav a {
+      text-decoration:none; color: var(--text); font-size:0.95rem;
+      position:relative; padding:0.2rem 0.4rem;
+      transition:color 0.3s;
+    }
+    nav a.active, nav a:hover { color: var(--accent); }
     #darkToggle { cursor:pointer; padding:0.3rem 0.6rem; border-radius:6px; border:1px solid var(--muted); background:transparent; }
+
+    /* ===== Sections ===== */
     section {
       background: var(--card);
-      margin:1.5rem 0;
+      margin:2rem 0;
       padding:2rem;
       border-radius:12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-      opacity:0; transform: translateY(20px);
-      transition: all 0.6s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      opacity:0; transform: translateY(30px);
+      transition: all 0.8s ease;
     }
     section.show { opacity:1; transform: translateY(0); }
-    h2 { color: var(--text); font-size:1.2rem; margin-bottom:1rem; border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:0.2rem; }
-    #home h1 { font-size:2rem; margin-bottom:0.5rem; color: var(--accent); }
-    #home p { color: var(--muted); margin-bottom:1.2rem; }
+    h2 { font-size:1.3rem; margin-bottom:1rem; color:var(--accent); border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:0.2rem; }
+
+    /* ===== Home ===== */
+    #home h1 { font-size:2rem; margin-bottom:0.6rem; color: var(--accent); }
+    #home p { color: var(--muted); margin-bottom:1.4rem; }
     .btn {
       background: var(--accent); color:white; border:none;
       padding:0.6rem 1rem; border-radius:6px;
       font-weight:500; cursor:pointer;
+      transition:transform 0.2s, box-shadow 0.2s;
     }
-    .btn:hover { opacity:0.9; }
+    .btn:hover { transform:translateY(-3px); box-shadow:0 4px 10px rgba(0,0,0,0.2); }
     .btn.ghost {
       background:transparent; border:1px solid var(--accent);
       color: var(--accent);
     }
-    .chips { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem; }
+
+    /* ===== Chips ===== */
+    .chips { display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:0.7rem; }
     .chip {
       background: var(--chip-bg);
-      padding:0.3rem 0.7rem;
+      padding:0.35rem 0.8rem;
       border-radius:999px;
       font-size:0.85rem;
+      transition: transform 0.2s, background 0.3s;
     }
-    body.dark .chip { background:#334155; color:#e2e8f0; }
-    .project { margin-bottom:1rem; }
-    .project h3 { font-size:1rem; color: var(--accent); margin-bottom:0.3rem; }
-    .project p { font-size:0.95rem; color: var(--muted); }
-    footer { text-align:center; padding:1rem; font-size:0.9rem; color: var(--muted); }
+    .chip:hover { transform:scale(1.1); background:var(--accent); color:white; }
+
+    /* ===== Projects ===== */
+    .project { margin-bottom:1.2rem; padding:1rem; border-radius:10px; background:var(--chip-bg);
+      transition:transform 0.25s, box-shadow 0.25s;
+    }
+    .project:hover { transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.12); }
+    .project h3 { font-size:1rem; margin-bottom:0.4rem; color:var(--accent); }
+    .project p { font-size:0.95rem; color:var(--muted); }
+
+    /* ===== Footer ===== */
+    footer { text-align:center; padding:1.2rem; font-size:0.9rem; color: var(--muted); }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <header>
     <h1>Bakul Arora</h1>
     <nav>
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
     <button id="darkToggle">🌙</button>
   </header>
+
   <main class="container">
+    <!-- Home -->
     <section id="home">
       <h1>Hi, I'm Bakul 👋</h1>
       <p>Aspiring Software Engineer skilled in Python, Java, SQL with strong foundations in Data Structures & Algorithms.</p>
-      <div style="display:flex; gap:0.6rem;">
+      <div style="display:flex; gap:0.8rem;">
         <button class="btn" id="hireBtn">Hire Me</button>
         <a class="btn ghost" href="assets/resume.pdf" target="_blank">Download Resume</a>
       </div>
     </section>
+
+    <!-- About -->
     <section id="about">
       <h2>About Me</h2>
       <p>Strong analytical and problem-solving ability with a quick learning mindset. Passionate about leveraging data to generate insights and support decision-making.</p>
@@ -114,6 +143,8 @@
         <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">DSA</span>
       </div>
     </section>
+
+    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
@@ -129,11 +160,15 @@
         <p>Collection of solved problems & patterns in Java (LeetCode practice).</p>
       </div>
     </section>
+
+    <!-- Education -->
     <section id="education">
       <h2>Education</h2>
       <p><b>Meerut Institute of Engineering and Technology</b> — B.Tech CSE (AI), CGPA 7.41/10 (Expected Jul 2026)</p>
       <p><b>Mount Litera Zee School</b> — Intermediate 83% (2022), Class 10th 88% (2020)</p>
     </section>
+
+    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <p><b>Email:</b> <a href="mailto:bakularora413@gmail.com">bakularora413@gmail.com</a></p>
@@ -142,24 +177,46 @@
       <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/bakul-arora-b83128296/" target="_blank">linkedin.com/in/bakul-arora</a></p>
     </section>
   </main>
+
   <footer>
     © <span id="year"></span> Bakul Arora | Built with HTML, CSS & JS
   </footer>
+
   <script>
+    // Year update
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Hire button
     document.getElementById("hireBtn").addEventListener("click", ()=>{
       window.location.href = "mailto:bakularora413@gmail.com?subject=Opportunity%20for%20Bakul";
     });
+
+    // Dark mode toggle
     const toggle = document.getElementById("darkToggle");
     toggle.addEventListener("click", ()=>{
       document.body.classList.toggle("dark");
       toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
     });
+
+    // Scroll animations
     const sections = document.querySelectorAll("section");
     const obs = new IntersectionObserver(entries=>{
       entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
     }, {threshold:0.2});
     sections.forEach(s=>obs.observe(s));
+
+    // Navbar active highlight
+    const navLinks = document.querySelectorAll(".nav-link");
+    const navObs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          navLinks.forEach(l=>l.classList.remove("active"));
+          const id = e.target.getAttribute("id");
+          document.querySelector(`a[href="#${id}"]`).classList.add("active");
+        }
+      });
+    }, {threshold:0.6});
+    sections.forEach(s=>navObs.observe(s));
   </script>
 </body>
 </html>
