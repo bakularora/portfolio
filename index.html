@@ -46,12 +46,16 @@
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-3xl font-bold mb-6">Projects</h2>
       <div class="grid md:grid-cols-2 gap-8">
+        <!-- Project 1 -->
         <div class="p-6 rounded-2xl shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg hover:scale-105 transition">
+          <img src="assets/estateease.png" alt="EstateEase Screenshot" class="rounded-lg mb-4">
           <h3 class="font-semibold text-xl mb-2">EstateEase</h3>
           <p class="mb-3">A Real Estate Finder app built using React.js & Tailwind. Deployed on Vercel + Render.</p>
           <a href="#" class="text-blue-600 hover:underline">View Project →</a>
         </div>
+        <!-- Project 2 -->
         <div class="p-6 rounded-2xl shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg hover:scale-105 transition">
+          <img src="assets/ai-courtroom.png" alt="AI Courtroom Screenshot" class="rounded-lg mb-4">
           <h3 class="font-semibold text-xl mb-2">AI-Courtroom</h3>
           <p class="mb-3">AI-powered Court Case Query System using NLP & ML, helps in fast legal research.</p>
           <a href="#" class="text-blue-600 hover:underline">View Project →</a>
@@ -111,7 +115,7 @@
       });
     });
 
-    // Dark mode
+    // Dark mode (fix: html tag, not body)
     const btn=document.getElementById("toggleTheme");
     btn.addEventListener("click", ()=>{
       document.documentElement.classList.toggle("dark");
