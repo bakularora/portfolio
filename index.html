@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Bakul Arora — Portfolio</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1e293b;
+      --muted: #475569;
+      --card: #ffffff;
+      --accent: #2563eb;
+      --chip-bg: #f1f5f9;
+    }
+    body.dark {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --chip-bg: #334155;
+    }
+    * {margin:0; padding:0; box-sizing:border-box;}
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      line-height:1.6;
+    }
+    html { scroll-behavior:smooth; }
+    .container { max-width: 900px; margin:auto; padding: 1.5rem; }
+    header {
+      background: var(--card);
+      border-bottom:1px solid #e2e8f0;
+      padding:1rem;
+      position:sticky; top:0; z-index:10;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    header h1 { font-size:1.1rem; color: var(--accent); }
+    nav ul { list-style:none; display:flex; gap:1rem; }
+    nav a { text-decoration:none; color: var(--text); font-size:0.95rem; }
+    nav a:hover { color: var(--accent); }
+    #darkToggle { cursor:pointer; padding:0.3rem 0.6rem; border-radius:6px; border:1px solid var(--muted); background:transparent; }
+    section {
+      background: var(--card);
+      margin:1.5rem 0;
+      padding:2rem;
+      border-radius:12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      opacity:0; transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    section.show { opacity:1; transform: translateY(0); }
+    h2 { color: var(--text); font-size:1.2rem; margin-bottom:1rem; border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:0.2rem; }
+    #home h1 { font-size:2rem; margin-bottom:0.5rem; color: var(--accent); }
+    #home p { color: var(--muted); margin-bottom:1.2rem; }
+    .btn {
+      background: var(--accent); color:white; border:none;
+      padding:0.6rem 1rem; border-radius:6px;
+      font-weight:500; cursor:pointer;
+    }
+    .btn:hover { opacity:0.9; }
+    .btn.ghost {
+      background:transparent; border:1px solid var(--accent);
+      color: var(--accent);
+    }
+    .chips { display:flex; flex-wrap:wrap; gap:0.5rem; margin-top:0.5rem; }
+    .chip {
+      background: var(--chip-bg);
+      padding:0.3rem 0.7rem;
+      border-radius:999px;
+      font-size:0.85rem;
+    }
+    body.dark .chip { background:#334155; color:#e2e8f0; }
+    .project { margin-bottom:1rem; }
+    .project h3 { font-size:1rem; color: var(--accent); margin-bottom:0.3rem; }
+    .project p { font-size:0.95rem; color: var(--muted); }
+    footer { text-align:center; padding:1rem; font-size:0.9rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bakul Arora</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="darkToggle">🌙</button>
+  </header>
+  <main class="container">
+    <section id="home">
+      <h1>Hi, I'm Bakul 👋</h1>
+      <p>Aspiring Software Engineer skilled in Python, Java, SQL with strong foundations in Data Structures & Algorithms.</p>
+      <div style="display:flex; gap:0.6rem;">
+        <button class="btn" id="hireBtn">Hire Me</button>
+        <a class="btn ghost" href="assets/resume.pdf" target="_blank">Download Resume</a>
+      </div>
+    </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>Strong analytical and problem-solving ability with a quick learning mindset. Passionate about leveraging data to generate insights and support decision-making.</p>
+      <h3 style="margin-top:1rem;">Skills</h3>
+      <div class="chips">
+        <span class="chip">Java</span><span class="chip">Python</span><span class="chip">JavaScript</span>
+        <span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Express</span>
+        <span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">SQL</span>
+        <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">DSA</span>
+      </div>
+    </section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>EstateEase (Jun 2025)</h3>
+        <p>Real Estate Finder App (React, Node, MongoDB, Firebase). Users can browse/post properties, upload images, login securely. Frontend: Vercel | Backend: Render</p>
+      </div>
+      <div class="project">
+        <h3>AI-Courtroom (May 2025)</h3>
+        <p>Legal advisory platform with AI models (spaCy, Transformers). Role-based login, secure backend (Spring Boot + MySQL).</p>
+      </div>
+      <div class="project">
+        <h3>DSA Repo</h3>
+        <p>Collection of solved problems & patterns in Java (LeetCode practice).</p>
+      </div>
+    </section>
+    <section id="education">
+      <h2>Education</h2>
+      <p><b>Meerut Institute of Engineering and Technology</b> — B.Tech CSE (AI), CGPA 7.41/10 (Expected Jul 2026)</p>
+      <p><b>Mount Litera Zee School</b> — Intermediate 83% (2022), Class 10th 88% (2020)</p>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><b>Email:</b> <a href="mailto:bakularora413@gmail.com">bakularora413@gmail.com</a></p>
+      <p><b>Phone:</b> +91 9627934556</p>
+      <p><b>GitHub:</b> <a href="https://github.com/bakularora" target="_blank">github.com/bakularora</a></p>
+      <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/bakul-arora-b83128296/" target="_blank">linkedin.com/in/bakul-arora</a></p>
+    </section>
+  </main>
+  <footer>
+    © <span id="year"></span> Bakul Arora | Built with HTML, CSS & JS
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("hireBtn").addEventListener("click", ()=>{
+      window.location.href = "mailto:bakularora413@gmail.com?subject=Opportunity%20for%20Bakul";
+    });
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("click", ()=>{
+      document.body.classList.toggle("dark");
+      toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+    const sections = document.querySelectorAll("section");
+    const obs = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("show"); });
+    }, {threshold:0.2});
+    sections.forEach(s=>obs.observe(s));
+  </script>
+</body>
+</html>
